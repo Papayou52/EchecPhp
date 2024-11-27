@@ -26,7 +26,6 @@ class PieceEchec {
             $this ->x = $x;
             $this ->y = $y;
         }
-        
      }
 
      //Fonction getCouleur
