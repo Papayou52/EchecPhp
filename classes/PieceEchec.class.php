@@ -20,7 +20,7 @@ class PieceEchec {
     } else {
         throw new Exception('Couleur de la piece inconnue <br>');
     }
-        if (($x < 1 && $x > 8)&&($y < 1 && $y > 8)) {
+        if (($x < 1 || $x > 8)||($y < 1 || $y > 8)) {
             throw new Exception('Coordonées de la piece incorrectes<br>');
         } else {
             $this ->x = $x;
