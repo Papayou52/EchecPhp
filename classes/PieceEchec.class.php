@@ -2,9 +2,9 @@
 class PieceEchec {
 
     //Parametre
-    Private  $y  ;
-    Private  $x  ;
-    Private  $couleur ; // 1 = Blanc 2 = Noir
+    protected  $y  ;
+    protected  $x  ;
+    protected  $couleur ; // 1 = Blanc 2 = Noir
 
     //Constructeur
     /**
@@ -14,7 +14,7 @@ class PieceEchec {
      * @param int $couleur;
      */
 
-     public function __construct(int $x, int $y, int $couleur)
+     public function __construct(int $y, int $x, int $couleur)
      {  if ($couleur == 1 || $couleur == 2) {
         $this->couleur = $couleur; 
     } else {
@@ -43,6 +43,9 @@ class PieceEchec {
                 return $x;
             }
         }
+
+
+         
 
         /** Fonction setY
       * Modifie la valeur y
