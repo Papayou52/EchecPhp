@@ -1,5 +1,5 @@
 <?php
-    class PieceEchecsExeption extends Exception {} 
+    class PieceEchecsException extends Exception {} 
     
 
 ?>

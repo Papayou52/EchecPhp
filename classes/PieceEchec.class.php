@@ -1,5 +1,5 @@
 <?php
-class PieceEchec {
+abstract class PieceEchec {
 
     //Parametre
     protected  $y  ;
@@ -15,16 +15,13 @@ class PieceEchec {
      */
 
      public function __construct(int $y, int $x, int $couleur)
-     {  if ($couleur == 1 || $couleur == 2) {
-        $this->couleur = $couleur; 
+     {  if ($couleur != 1 && $couleur != 2) {
+        throw new PieceEchecsException('Couleur de la piece inconnue');
     } else {
-        throw new PieceEchecsExeption('Couleur de la piece inconnue');
-    }
-        // if (($x < 1 || $x > 8)||($y < 1 || $y > 8)) {
-        //     throw new Exception('Coordonées de la piece incorrectes');
-        // } else {
             $this ->x = $this->setX($x);
             $this ->y = $this->setY($y);
+            $this->couleur = $couleur; 
+        }
         // }
      }
      // --------------------LES SETTERS --------------
@@ -37,7 +34,7 @@ class PieceEchec {
      
         public function setX($x) : int {
             if ($x < 1 || $x > 8) {
-                throw new PieceEchecsExeption('Coordonées "X" de la piece incorrectes');
+                throw new PieceEchecsException('Coordonées "X" de la piece incorrectes');
             } else {
                 $this ->x = $x;
                 return $x;
@@ -55,7 +52,7 @@ class PieceEchec {
      
       public function setY($y) : int {
         if ($y < 1 || $y > 8) {
-            throw new PieceEchecsExeption("Coordonées 'Y' de la piece incorrectes");
+            throw new PieceEchecsException("Coordonées 'Y' de la piece incorrectes");
         } else {
             $this ->y = $y;
             return $y;
@@ -95,6 +92,15 @@ class PieceEchec {
             echo 'La case est blanche<br>';
             return 1;
         }
+      }
+
+      public abstract function canGo(int $y, int $x) : bool;
+
+
+      protected function positionValide(int $y, int $x) : bool{
+        if ($y < 1 || $y > 8 || $x < 1 || $x > 8)
+            return false;
+        return true;
       }
 
       //function toString

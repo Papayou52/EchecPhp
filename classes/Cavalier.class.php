@@ -27,9 +27,8 @@
 
 
         public function canGo(int $y, int $x) : bool {
-            if (($y < 1 || $y > 8) || ($x < 1 || $y > 8)){
-                return false;
-            }
+            if ($this->positionValide($y,$x) == false) 
+            return false;
             elseif(($this ->y + 2 == $y) && ($this ->x - 1 == $x)){
                 return true;
             }elseif(($this ->y + 2 == $y) && ($this ->x + 1 == $x)){
