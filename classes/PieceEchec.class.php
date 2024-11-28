@@ -18,7 +18,7 @@ class PieceEchec {
      {  if ($couleur == 1 || $couleur == 2) {
         $this->couleur = $couleur; 
     } else {
-        throw new Exception('Couleur de la piece inconnue');
+        throw new PieceEchecsExeption('Couleur de la piece inconnue');
     }
         // if (($x < 1 || $x > 8)||($y < 1 || $y > 8)) {
         //     throw new Exception('Coordonées de la piece incorrectes');
@@ -37,7 +37,7 @@ class PieceEchec {
      
         public function setX($x) : int {
             if ($x < 1 || $x > 8) {
-                throw new Exception('Coordonées "X" de la piece incorrectes');
+                throw new PieceEchecsExeption('Coordonées "X" de la piece incorrectes');
             } else {
                 $this ->x = $x;
                 return $x;
@@ -55,7 +55,7 @@ class PieceEchec {
      
       public function setY($y) : int {
         if ($y < 1 || $y > 8) {
-            throw new Exception('Coordonées "Y" de la piece incorrectes');
+            throw new PieceEchecsExeption("Coordonées 'Y' de la piece incorrectes");
         } else {
             $this ->y = $y;
             return $y;
