@@ -103,6 +103,25 @@ abstract class PieceEchec {
         return true;
       }
 
+      //Function peutManger
+      /**
+       * 
+       */
+        public function peutManger(PieceEchec $piece)  {
+             
+            echo get_class($this).":". $this."Peut manger ?";
+            echo  get_class($piece). ":". $piece;
+            if ($this->couleur != $piece->couleur && $this->canGo($piece->y,$piece->x)) {
+            echo "OUI<br>";
+            return true;
+        } else echo "NON<br>";
+            return false;
+            
+            
+            
+        }
+
+
       //function toString
       /**
        * 
