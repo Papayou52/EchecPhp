@@ -247,8 +247,44 @@ echo "<br>";
             }catch (PieceEchecsException $e) {
              echo "Erreur : ".$e->getMessage();
              }
+             try {
+                $tour10 = new Tour(5,5,2);
+            } catch (PieceEchecsException $e) {
+                echo "Erreur : ".$e->getMessage();
+            }
+            try {
+                $tour11 = new Tour(4,5,2);
+            } catch (PieceEchecsException $e) {
+                echo "Erreur : ".$e->getMessage();
+            }
+        echo "<br>";
+        try {
+            $tour10->peutManger($tour11);
+        } catch (PieceEchecsException $e) {
+            echo "erreur : ".$e->getMessage();
+        }
+        
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
 
-            
+        try {
+            $pion50 = new pion(3,3,2);
+        } catch (PieceEchecsException $e) {
+            echo "Erreur : ".$e->getMessage();
+        }
+
+        try {
+            $pion55 = new pion(2,2,1);
+        } catch (PieceEchecsException $e) {
+            echo "Erreur : ".$e->getMessage();
+        }
+
+        try {
+            $pion55->peutManger($pion50);
+        } catch (PieceEchecsException $e) {
+            echo "erreur : ".$e->getMessage();
+        }
 
 
     ?>
